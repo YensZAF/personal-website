@@ -24,25 +24,27 @@ boilerplate).
 ## Color tokens
 
 Dark mode (default when `prefers-color-scheme: dark`):
-| token | value | use |
-|---|---|---|
-| `--bg` | `#0a0e17` | page background |
-| `--surface` | `#10151f` | card/elevated background |
-| `--border` | `#1e2735` | hairlines, card borders |
-| `--text` | `#e2e8f0` | primary copy |
-| `--text-dim` | `#7c8aa0` | section labels, secondary copy |
-| `--accent` | `#4d8dff` | links, primary accent |
+
+| token        | value     | use                                                |
+| ------------ | --------- | -------------------------------------------------- |
+| `--bg`       | `#0a0e17` | page background                                    |
+| `--surface`  | `#10151f` | card/elevated background                           |
+| `--border`   | `#1e2735` | hairlines, card borders                            |
+| `--text`     | `#e2e8f0` | primary copy                                       |
+| `--text-dim` | `#7c8aa0` | section labels, secondary copy                     |
+| `--accent`   | `#4d8dff` | links, primary accent                              |
 | `--accent-2` | `#38bdf8` | gradient pairing with accent, node-graph highlight |
 
 Light mode (`prefers-color-scheme: light`):
-| token | value | use |
-|---|---|---|
-| `--bg` | `#f4f6f9` | page background |
-| `--surface` | `#ffffff` | card/elevated background |
-| `--border` | `#dde3ec` | hairlines, card borders |
-| `--text` | `#131b29` | primary copy |
-| `--text-dim` | `#57657a` | section labels, secondary copy |
-| `--accent` | `#2f6fed` | links, primary accent |
+
+| token        | value     | use                                                |
+| ------------ | --------- | -------------------------------------------------- |
+| `--bg`       | `#f4f6f9` | page background                                    |
+| `--surface`  | `#ffffff` | card/elevated background                           |
+| `--border`   | `#dde3ec` | hairlines, card borders                            |
+| `--text`     | `#131b29` | primary copy                                       |
+| `--text-dim` | `#57657a` | section labels, secondary copy                     |
+| `--accent`   | `#2f6fed` | links, primary accent                              |
 | `--accent-2` | `#0ea5c4` | gradient pairing with accent, node-graph highlight |
 
 No toggle, no stored override — pure CSS `@media (prefers-color-scheme)`,
@@ -51,6 +53,7 @@ switches live if the OS/browser setting changes.
 ## Type
 
 IBM Plex Mono throughout (self-hosted or Google Fonts, `font-display: swap`).
+
 - Headers: weight 600, tight letter-spacing, larger scale (hero name ~2.5rem,
   section headers ~1rem uppercase)
 - Body: weight 400, 1rem, line-height 1.6
@@ -117,6 +120,7 @@ distinct from real content so it's obvious these need swapping). Card style:
 (underlined `--accent`) + repeat of LinkedIn/GitHub/X/Mastodon links.
 
 Link targets:
+
 - Email: `me@yensloff.com`
 - GitHub: `https://github.com/YensZAF`
 - LinkedIn: placeholder href (`#`) — real URL to be supplied later

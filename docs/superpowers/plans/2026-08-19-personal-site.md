@@ -25,11 +25,13 @@
 ### Task 1: Design tokens and global styles
 
 **Files:**
+
 - Create: `src/lib/styles/tokens.css`
 - Modify: `src/routes/+layout.svelte`
 - Modify: `package.json` (add `@fontsource/ibm-plex-mono`)
 
 **Interfaces:**
+
 - Produces: CSS custom properties `--bg`, `--surface`, `--border`, `--text`, `--text-dim`, `--accent`, `--accent-2`, and `--font-mono`, available globally to every component via `:root`.
 
 - [ ] **Step 1: Install the font package**
@@ -41,12 +43,7 @@ Run: `npm install @fontsource/ibm-plex-mono`
 ```css
 /* src/lib/styles/tokens.css */
 :root {
-	--font-mono:
-		'IBM Plex Mono',
-		ui-monospace,
-		'SFMono-Regular',
-		Menlo,
-		monospace;
+	--font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
 	--bg: #f4f6f9;
 	--surface: #ffffff;
@@ -137,13 +134,16 @@ git commit -m "feat: add design tokens and IBM Plex Mono"
 ### Task 2: Node-graph generator (pure function + tests)
 
 **Files:**
+
 - Create: `src/lib/nodegraph.ts`
 - Test: `src/lib/nodegraph.test.ts`
 - Modify: `package.json` (add `vitest`)
 - Create: `vitest.config.ts`
 
 **Interfaces:**
+
 - Produces:
+
   ```ts
   export interface GraphNode {
   	x: number; // 0..width
@@ -165,6 +165,7 @@ git commit -m "feat: add design tokens and IBM Plex Mono"
   	maxEdgeDistance: number
   ): Graph;
   ```
+
   Consumed by Task 4's `NodeGraph.svelte`.
 
 - [ ] **Step 1: Install Vitest**
@@ -187,6 +188,7 @@ export default defineConfig({
 - [ ] **Step 3: Add the `test` script**
 
 Modify `package.json` `scripts` block, add:
+
 ```json
 "test": "vitest run"
 ```
@@ -320,9 +322,11 @@ git commit -m "feat: add deterministic node-graph generator"
 ### Task 3: NodeGraph component
 
 **Files:**
+
 - Create: `src/lib/components/NodeGraph.svelte`
 
 **Interfaces:**
+
 - Consumes: `generateGraph(seed, width, height, count, maxEdgeDistance): Graph` from Task 2 (`$lib/nodegraph`).
 - Produces: a Svelte component `<NodeGraph />` with no required props, used by Task 6's `Hero.svelte` as an absolutely-positioned background layer.
 
@@ -424,11 +428,14 @@ git commit -m "feat: add NodeGraph background component"
 ### Task 4: Contact links and project placeholder data
 
 **Files:**
+
 - Create: `src/lib/data/links.ts`
 - Create: `src/lib/data/projects.ts`
 
 **Interfaces:**
+
 - Produces:
+
   ```ts
   export interface ContactLinks {
   	email: string;
@@ -439,7 +446,9 @@ git commit -m "feat: add NodeGraph background component"
   }
   export const links: ContactLinks;
   ```
+
   and
+
   ```ts
   export interface Project {
   	title: string;
@@ -447,6 +456,7 @@ git commit -m "feat: add NodeGraph background component"
   }
   export const projects: Project[];
   ```
+
   Consumed by Task 6 (`Hero.svelte`), Task 8 (`Projects.svelte`), Task 9 (`Contact.svelte`).
 
 - [ ] **Step 1: Write the links data**
@@ -482,11 +492,11 @@ export interface Project {
 export const projects: Project[] = [
 	{
 		title: 'Project one',
-		description: 'Placeholder — swap in a real write-up when it\'s ready.'
+		description: "Placeholder — swap in a real write-up when it's ready."
 	},
 	{
 		title: 'Project two',
-		description: 'Placeholder — swap in a real write-up when it\'s ready.'
+		description: "Placeholder — swap in a real write-up when it's ready."
 	}
 ];
 ```
@@ -508,9 +518,11 @@ git commit -m "feat: add contact links and placeholder project data"
 ### Task 5: Header component
 
 **Files:**
+
 - Create: `src/lib/components/Header.svelte`
 
 **Interfaces:**
+
 - Produces: `<Header />`, no props, used by Task 10's `+page.svelte`.
 
 - [ ] **Step 1: Write the component**
@@ -518,14 +530,7 @@ git commit -m "feat: add contact links and placeholder project data"
 ```svelte
 <!-- src/lib/components/Header.svelte -->
 <header class="site-header">
-	<svg
-		class="mark"
-		width="20"
-		height="20"
-		viewBox="0 0 20 20"
-		aria-hidden="true"
-		focusable="false"
-	>
+	<svg class="mark" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
 		<line x1="4" y1="16" x2="10" y2="5" stroke="var(--accent)" stroke-width="1.5" />
 		<line x1="10" y1="5" x2="16" y2="16" stroke="var(--accent)" stroke-width="1.5" />
 		<circle cx="4" cy="16" r="2" fill="var(--accent)" />
@@ -569,9 +574,11 @@ git commit -m "feat: add site header with node-graph mark"
 ### Task 6: Hero component
 
 **Files:**
+
 - Create: `src/lib/components/Hero.svelte`
 
 **Interfaces:**
+
 - Consumes: `<NodeGraph />` (Task 3), `links` from `$lib/data/links` (Task 4).
 - Produces: `<Hero />`, no props, used by Task 10's `+page.svelte`.
 
@@ -674,9 +681,11 @@ git commit -m "feat: add hero section"
 ### Task 7: About component
 
 **Files:**
+
 - Create: `src/lib/components/About.svelte`
 
 **Interfaces:**
+
 - Produces: `<About />`, no props, used by Task 10's `+page.svelte`.
 
 - [ ] **Step 1: Write the component**
@@ -687,9 +696,8 @@ git commit -m "feat: add hero section"
 	<h2>About</h2>
 	<p>
 		I'm a senior cyber analyst at Cyberlogic, currently pursuing a Master's in Cybersecurity at
-		Michigan Tech. Lately I've been drawn to how AI is reshaping the security field — from
-		detection and triage to the new attack surface it creates — and I like digging into that
-		intersection.
+		Michigan Tech. Lately I've been drawn to how AI is reshaping the security field — from detection
+		and triage to the new attack surface it creates — and I like digging into that intersection.
 	</p>
 </section>
 
@@ -733,10 +741,12 @@ git commit -m "feat: add about section"
 ### Task 8: Projects section
 
 **Files:**
+
 - Create: `src/lib/components/ProjectCard.svelte`
 - Create: `src/lib/components/Projects.svelte`
 
 **Interfaces:**
+
 - Consumes: `Project` type and `projects` from `$lib/data/projects` (Task 4).
 - `ProjectCard.svelte` props: `{ project: Project }`.
 - Produces: `<Projects />`, no props, used by Task 10's `+page.svelte`.
@@ -865,9 +875,11 @@ git commit -m "feat: add projects section with placeholder cards"
 ### Task 9: Contact component
 
 **Files:**
+
 - Create: `src/lib/components/Contact.svelte`
 
 **Interfaces:**
+
 - Consumes: `links` from `$lib/data/links` (Task 4).
 - Produces: `<Contact />`, no props, used by Task 10's `+page.svelte`.
 
@@ -938,9 +950,11 @@ git commit -m "feat: add contact section"
 ### Task 10: Assemble the page
 
 **Files:**
+
 - Modify: `src/routes/+page.svelte`
 
 **Interfaces:**
+
 - Consumes: `<Header />` (Task 5), `<Hero />` (Task 6), `<About />` (Task 7), `<Projects />` (Task 8), `<Contact />` (Task 9).
 
 - [ ] **Step 1: Replace the scaffold page**
@@ -994,10 +1008,12 @@ git commit -m "feat: assemble personal site page"
 ### Task 11: Accessibility and responsive pass
 
 **Files:**
+
 - Modify: `src/lib/styles/tokens.css`
 - Modify: `src/lib/components/Hero.svelte`
 
 **Interfaces:**
+
 - None (styling-only pass over existing components from Tasks 1–10).
 
 - [ ] **Step 1: Add a base heading scale and skip-obvious-a11y-gaps check**
