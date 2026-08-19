@@ -1,13 +1,6 @@
 <!-- src/lib/components/Header.svelte -->
 <header class="site-header">
-	<svg
-		class="mark"
-		width="20"
-		height="20"
-		viewBox="0 0 20 20"
-		aria-hidden="true"
-		focusable="false"
-	>
+	<svg class="mark" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
 		<line x1="4" y1="16" x2="10" y2="5" stroke="var(--accent)" stroke-width="1.5" />
 		<line x1="10" y1="5" x2="16" y2="16" stroke="var(--accent)" stroke-width="1.5" />
 		<circle cx="4" cy="16" r="2" fill="var(--accent)" />

@@ -6,10 +6,10 @@ export interface Project {
 export const projects: Project[] = [
 	{
 		title: 'Project one',
-		description: 'Placeholder — swap in a real write-up when it\'s ready.'
+		description: "Placeholder — swap in a real write-up when it's ready."
 	},
 	{
 		title: 'Project two',
-		description: 'Placeholder — swap in a real write-up when it\'s ready.'
+		description: "Placeholder — swap in a real write-up when it's ready."
 	}
 ];

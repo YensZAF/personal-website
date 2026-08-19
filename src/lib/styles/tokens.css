@@ -1,11 +1,6 @@
 /* src/lib/styles/tokens.css */
 :root {
-	--font-mono:
-		'IBM Plex Mono',
-		ui-monospace,
-		'SFMono-Regular',
-		Menlo,
-		monospace;
+	--font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
 	--bg: #f4f6f9;
 	--surface: #ffffff;

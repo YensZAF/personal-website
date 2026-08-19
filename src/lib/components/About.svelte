@@ -3,9 +3,8 @@
 	<h2>About</h2>
 	<p>
 		I'm a senior cyber analyst at Cyberlogic, currently pursuing a Master's in Cybersecurity at
-		Michigan Tech. Lately I've been drawn to how AI is reshaping the security field — from
-		detection and triage to the new attack surface it creates — and I like digging into that
-		intersection.
+		Michigan Tech. Lately I've been drawn to how AI is reshaping the security field — from detection
+		and triage to the new attack surface it creates — and I like digging into that intersection.
 	</p>
 </section>
 
