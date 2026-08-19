@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-npx sv@0.16.4 create --template minimal --types ts --add sveltekit-adapter="adapter:static" mdsvex --no-download-check --install npm .
+npx sv@0.17.0 create --template minimal --types ts --add prettier eslint --install npm /tmp/sv-scaffold
 ```
 
 ## Developing
