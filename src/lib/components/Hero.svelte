@@ -27,6 +27,7 @@
 		margin: 0 auto;
 		padding: 4rem 1.5rem 3rem;
 		overflow: hidden;
+		border-top: 1px solid var(--border);
 	}
 
 	.content {
