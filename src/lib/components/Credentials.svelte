@@ -29,12 +29,13 @@
 		{/each}
 	</div>
 
-	<p class="font-record text-ink-mid mt-8 max-w-[38rem] text-sm leading-6">
-		Previously held, now lapsed:
-	</p>
-	<ul class="font-record text-ink-mid mt-1 max-w-[38rem] list-none p-0 text-sm leading-6">
-		{#each pastCertifications as cert (cert)}
-			<li>{cert}</li>
+	<p class="font-record text-ink-mid mt-8 max-w-[38rem] text-sm leading-6">Previously held:</p>
+	<ul class="mt-1 max-w-[38rem] list-none p-0">
+		{#each pastCertifications as cert (cert.name)}
+			<li class="font-record text-ink-mid flex flex-wrap justify-between gap-x-6 text-sm leading-7">
+				<span>{cert.name}</span>
+				<span>{cert.status}</span>
+			</li>
 		{/each}
 	</ul>
 

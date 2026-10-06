@@ -10,6 +10,11 @@ export interface Certification {
 	logo: string;
 }
 
+export interface PastCertification {
+	name: string;
+	status: string;
+}
+
 /** Currently held, newest series first. */
 export const certifications: Certification[] = [
 	{
@@ -39,9 +44,18 @@ export const certifications: Certification[] = [
 	}
 ];
 
-/** Held previously, now lapsed. Listed because the work behind them still counts. */
-export const pastCertifications: string[] = [
-	'Microsoft 365 Certified: Security Administrator Associate (MS-500)',
-	'Microsoft Certified: Azure Security Engineer Associate (AZ-500)',
-	'Microsoft Certified: Security Operations Analyst Associate (SC-200)'
+/** Held previously. Listed because the work behind them still counts. */
+export const pastCertifications: PastCertification[] = [
+	{
+		name: 'Microsoft 365 Certified: Security Administrator Associate (MS-500)',
+		status: 'Exam retired by Microsoft'
+	},
+	{
+		name: 'Microsoft Certified: Azure Security Engineer Associate (AZ-500)',
+		status: 'Exam retired by Microsoft'
+	},
+	{
+		name: 'Microsoft Certified: Security Operations Analyst Associate (SC-200)',
+		status: 'Expired'
+	}
 ];
