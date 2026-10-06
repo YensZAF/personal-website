@@ -16,7 +16,20 @@
 		{/each}
 	</ul>
 
-	<p class="font-record text-ink-mid mt-6 max-w-[38rem] text-sm leading-6">
+	<div class="mt-8 flex flex-wrap items-center gap-5 md:gap-6" aria-hidden="true">
+		{#each certifications as cert (cert.name)}
+			<img
+				class="h-20 w-20 md:h-26 md:w-26"
+				src={cert.logo}
+				alt=""
+				width="88"
+				height="88"
+				loading="lazy"
+			/>
+		{/each}
+	</div>
+
+	<p class="font-record text-ink-mid mt-8 max-w-[38rem] text-sm leading-6">
 		Previously held, now lapsed: {pastCertifications.join('; ')}.
 	</p>
 
