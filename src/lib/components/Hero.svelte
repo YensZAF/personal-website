@@ -1,78 +1,25 @@
-<!-- src/lib/components/Hero.svelte -->
 <script lang="ts">
-	import NodeGraph from '$lib/components/NodeGraph.svelte';
-	import { links } from '$lib/data/links';
+	const lines = [
+		'I work where AI starts',
+		'making security decisions —',
+		'and where it gets them wrong.'
+	];
 </script>
 
-<section class="hero">
-	<NodeGraph />
-	<div class="content">
-		<h1>Hey, I'm Yens.</h1>
-		<p class="subtitle">Senior Cyber Analyst @ Cyberlogic</p>
-		<p class="subtitle">MS Cybersecurity Candidate @ MTU</p>
-		<div class="links">
-			<a class="button" href="mailto:{links.email}">Email</a>
-			<a class="button" href={links.linkedin}>LinkedIn</a>
-			<a class="button" href={links.github}>GitHub</a>
-			<a class="button" href={links.x}>X</a>
-			<a class="button" href={links.mastodon}>Mastodon</a>
-		</div>
-	</div>
+<section class="pb-12 md:pb-16">
+	<h1 class="text-statement max-w-[30ch] font-normal tracking-[-0.015em]">
+		{#each lines as line, i (line)}
+			<span class="set-line block sm:whitespace-nowrap" style="animation-delay: {0.08 + i * 0.12}s"
+				>{line}</span
+			>
+		{/each}
+	</h1>
+
+	<p
+		class="font-record text-ink-mid set-line mt-10 text-base leading-7 md:mt-14"
+		style="animation-delay: 0.52s"
+	>
+		Senior cyber analyst at Cyberlogic.<br />
+		Five years in security operations and detection.
+	</p>
 </section>
-
-<style>
-	.hero {
-		position: relative;
-		max-width: 740px;
-		margin: 0 auto;
-		padding: 4rem 1.5rem 3rem;
-		overflow: hidden;
-		border-top: 1px solid var(--border);
-	}
-
-	.content {
-		position: relative;
-	}
-
-	h1 {
-		font-size: 2.25rem;
-		font-weight: 600;
-		letter-spacing: -0.01em;
-		margin: 0 0 0.75rem;
-	}
-
-	.subtitle {
-		margin: 0 0 0.25rem;
-		color: var(--text-dim);
-	}
-
-	.links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 1.5rem;
-	}
-
-	.button {
-		display: inline-block;
-		padding: 0.5rem 0.9rem;
-		border: 1px solid var(--border);
-		border-radius: 8px;
-		background: var(--surface);
-		color: var(--text);
-		text-decoration: none;
-		font-size: 0.9rem;
-		transition: border-color 0.15s ease;
-	}
-
-	.button:hover {
-		border-color: var(--accent);
-		color: var(--accent);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.button {
-			transition: none;
-		}
-	}
-</style>

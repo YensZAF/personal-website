@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@theme {
+	/* Cool bond paper and ink. One accent, used sparingly. */
+	--color-paper: #e6e9ec;
+	--color-paper-sunk: #dde1e6;
+	--color-ink: #14171c;
+	--color-ink-mid: #5e646e;
+	--color-rule: #c3c9d0;
+	--color-seal: #184a3c;
+
+	--font-text: 'Spectral', Georgia, 'Times New Roman', serif;
+	--font-record: 'Archivo Narrow', 'Helvetica Neue', Arial, sans-serif;
+
+	/* Type scale, Elements of Typographic Style proportions */
+	--text-statement: clamp(2.1rem, 5.6vw, 4.25rem);
+	--text-statement--line-height: 1.04;
+	--text-lede: clamp(1.1rem, 1.6vw, 1.3rem);
+	--text-lede--line-height: 1.6;
+	--text-entry: clamp(1rem, 1.3vw, 1.125rem);
+	--text-entry--line-height: 1.4;
+}
+
+@layer base {
+	html {
+		background-color: var(--color-paper);
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	body {
+		background-color: var(--color-paper);
+		color: var(--color-ink);
+		font-family: var(--font-text);
+		font-size: 1.0625rem;
+		line-height: 1.65;
+	}
+
+	::selection {
+		background-color: var(--color-seal);
+		color: var(--color-paper);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-seal);
+		outline-offset: 3px;
+	}
+}
+
+/* The single orchestrated moment: the opening statement sets itself, line by line. */
+@keyframes set-line {
+	from {
+		opacity: 0;
+		transform: translateY(0.5em);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.set-line {
+	animation: set-line 0.75s cubic-bezier(0.22, 0.75, 0.3, 1) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.set-line {
+		animation: none;
+	}
+}

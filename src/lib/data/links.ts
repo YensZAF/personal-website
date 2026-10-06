@@ -2,14 +2,12 @@ export interface ContactLinks {
 	email: string;
 	github: string;
 	linkedin: string;
-	x: string;
-	mastodon: string;
+	credly: string;
 }
 
 export const links: ContactLinks = {
 	email: 'me@yensloff.com',
 	github: 'https://github.com/YensZAF',
 	linkedin: '#',
-	x: '#',
-	mastodon: '#'
+	credly: 'https://www.credly.com/users/yens-loff'
 };

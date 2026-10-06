@@ -1,23 +1,29 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import About from '$lib/components/About.svelte';
-	import Projects from '$lib/components/Projects.svelte';
-	import Contact from '$lib/components/Contact.svelte';
+	import Work from '$lib/components/Work.svelte';
+	import Credentials from '$lib/components/Credentials.svelte';
+	import Education from '$lib/components/Education.svelte';
+	import Enquire from '$lib/components/Enquire.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <svelte:head>
-	<title>Yens — Senior Cyber Analyst</title>
+	<title>Yens Loff — Senior cyber analyst</title>
 	<meta
 		name="description"
-		content="Yens, senior cyber analyst at Cyberlogic and MS Cybersecurity candidate at Michigan Tech, interested in AI's growing role in security."
+		content="Yens Loff, senior cyber analyst at Cyberlogic. Five years in security operations and detection, working on AI's role in security decisions. Credentials, education, and a way to get in touch."
 	/>
 </svelte:head>
 
-<Header />
-<main>
-	<Hero />
-	<About />
-	<Projects />
-	<Contact />
-</main>
+<div class="mx-auto w-full max-w-5xl px-6 md:px-10">
+	<Header />
+	<main>
+		<Hero />
+		<Work />
+		<Credentials />
+		<Education />
+		<Enquire />
+	</main>
+	<Footer />
+</div>
