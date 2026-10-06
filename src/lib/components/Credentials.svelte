@@ -30,10 +30,15 @@
 	</div>
 
 	<p class="font-record text-ink-mid mt-8 max-w-[38rem] text-sm leading-6">
-		Previously held, now lapsed: {pastCertifications.join('; ')}.
+		Previously held, now lapsed:
 	</p>
+	<ul class="font-record text-ink-mid mt-1 max-w-[38rem] list-none p-0 text-sm leading-6">
+		{#each pastCertifications as cert (cert)}
+			<li>{cert}</li>
+		{/each}
+	</ul>
 
-	<p class="font-record mt-4 text-sm">
+	<p class="font-record mt-5 text-sm">
 		<a
 			class="decoration-rule hover:text-seal hover:decoration-seal text-ink underline underline-offset-4 transition-colors"
 			href={links.credly}
