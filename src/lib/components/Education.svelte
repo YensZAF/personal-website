@@ -11,7 +11,7 @@
 			>
 				<span class="text-entry">{degree.qualification}</span>
 				<span class="font-record text-ink-mid text-sm"
-					>{degree.institution}, {degree.status.toLowerCase()}</span
+					>{degree.institution}, {degree.location}, {degree.status.toLowerCase()}</span
 				>
 			</li>
 		{/each}
