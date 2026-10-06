@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { links } from '$lib/data/links';
-
 	let name = $state('');
 	let email = $state('');
 	let message = $state('');
@@ -29,12 +27,7 @@
 	<div>
 		<h2 class="font-record text-ink-mid text-sm leading-6 tracking-wide">Enquire</h2>
 
-		<p class="text-lede mt-4 max-w-[42ch]">
-			I keep this page short on purpose. If you want the longer version — the roles, the detail, a
-			CV — ask and I'll send it.
-		</p>
-
-		<form class="relative mt-9" onsubmit={handleSubmit}>
+		<form class="relative mt-7" onsubmit={handleSubmit}>
 			<div class="grid gap-6 sm:grid-cols-2">
 				<div>
 					<label class={label} for="name">Your name</label>
@@ -69,23 +62,15 @@
 				/>
 			</div>
 
-			<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-				<button
-					class="font-record bg-seal text-paper hover:bg-ink cursor-pointer border-0 px-7 py-3 text-base transition-colors"
-					type="submit">Send message</button
-				>
-				<p class="font-record text-ink-mid text-sm">
-					Or write to
-					<a
-						class="text-ink decoration-seal/40 hover:decoration-seal underline underline-offset-4 transition-colors"
-						href="mailto:{links.email}">{links.email}</a
-					>
-				</p>
-			</div>
+			<button
+				class="font-record bg-seal text-paper hover:bg-ink mt-8 cursor-pointer border-0 px-7 py-3 text-base transition-colors"
+				type="submit">Send message</button
+			>
 
 			{#if status === 'unsent'}
 				<p class="font-record text-ink-mid mt-5 max-w-[46ch] text-sm leading-6" role="status">
-					This form isn't connected yet, so nothing was sent. Email me instead and I'll reply.
+					This form isn't connected yet, so nothing was sent. It's being wired up — try again in a
+					few days.
 				</p>
 			{/if}
 		</form>
