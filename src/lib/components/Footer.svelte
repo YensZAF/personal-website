@@ -9,7 +9,7 @@
 </script>
 
 <footer
-	class="border-rule font-record text-ink-mid flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 border-t py-10 text-sm"
+	class="font-record text-ink-mid flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 pt-2 pb-10 text-sm"
 >
 	<span>Yens Loff</span>
 	<ul class="m-0 flex list-none flex-wrap gap-x-7 p-0">

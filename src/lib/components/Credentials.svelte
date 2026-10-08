@@ -2,17 +2,15 @@
 	import Section from '$lib/components/Section.svelte';
 	import { certifications, pastCertifications } from '$lib/data/certifications';
 	import { links } from '$lib/data/links';
+
+	/** Every current certificate shares an issuer, so name it once beside the label. */
+	const issuers = [...new Set(certifications.map((cert) => cert.issuer))].join(', ');
 </script>
 
-<Section id="credentials" label="Credentials">
+<Section id="credentials" label="Credentials" note={issuers}>
 	<ul class="max-w-[38rem] list-none p-0">
 		{#each certifications as cert (cert.name)}
-			<li
-				class="border-rule flex flex-wrap items-baseline justify-between gap-x-6 gap-y-0 border-b py-3 first:pt-0"
-			>
-				<span class="text-entry">{cert.name}</span>
-				<span class="font-record text-ink-mid text-sm">{cert.issuer}</span>
-			</li>
+			<li class="text-entry py-1 first:pt-0">{cert.name}</li>
 		{/each}
 	</ul>
 

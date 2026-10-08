@@ -1,4 +1,6 @@
 <script lang="ts">
+	import guilloche from '$lib/assets/patterns/guilloche.svg';
+
 	let name = $state('');
 	let email = $state('');
 	let message = $state('');
@@ -22,8 +24,20 @@
 
 <section
 	id="enquire"
-	class="bg-seal-tint mt-6 mb-12 px-6 py-12 md:mt-10 md:mb-16 md:px-12 md:py-14"
+	class="bg-seal-tint relative isolate mt-6 mb-12 overflow-hidden px-6 py-12 md:mt-10 md:mb-16 md:px-12 md:py-14"
 >
+	<!-- A guilloché rosette, the engraving on certificates and banknotes. Centred on the card's
+	     right edge so only its left half shows, fading out before it reaches the label. -->
+	<img
+		class="pointer-events-none absolute top-1/2 right-0 -z-10 w-[44rem] max-w-none translate-x-1/2 -translate-y-1/2 opacity-[0.2] select-none md:w-[56rem]"
+		style="mask-image: linear-gradient(to left, #000 35%, transparent 100%); -webkit-mask-image: linear-gradient(to left, #000 35%, transparent 100%);"
+		src={guilloche}
+		alt=""
+		aria-hidden="true"
+		loading="lazy"
+		decoding="async"
+	/>
+
 	<div>
 		<h2 class="font-record text-ink-mid text-sm leading-6 tracking-wide">Enquire</h2>
 

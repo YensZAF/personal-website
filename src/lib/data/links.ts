@@ -6,6 +6,6 @@ export interface ContactLinks {
 
 export const links: ContactLinks = {
 	github: 'https://github.com/YensZAF',
-	linkedin: '#',
+	linkedin: 'https://www.linkedin.com/in/yensloff/',
 	credly: 'https://www.credly.com/users/yens-loff'
 };

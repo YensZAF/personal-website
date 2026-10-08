@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Work from '$lib/components/Work.svelte';
 	import Credentials from '$lib/components/Credentials.svelte';
@@ -17,9 +16,8 @@
 </svelte:head>
 
 <div class="mx-auto w-full max-w-5xl px-6 md:px-10">
-	<Header />
+	<Hero />
 	<main>
-		<Hero />
 		<Work />
 		<Education />
 		<Credentials />
