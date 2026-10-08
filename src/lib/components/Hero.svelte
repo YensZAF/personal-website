@@ -5,9 +5,9 @@
 	import { links } from '$lib/data/links';
 
 	const lines = [
-		'I work where AI starts',
-		'making security decisions —',
-		'and where it gets them wrong.'
+		'Most of the job is asking',
+		'one more question than',
+		'the attacker hoped I would.'
 	];
 
 	const profiles = [
@@ -51,13 +51,12 @@
 		</h1>
 
 		<p
-			class="text-lede set-line max-w-[62ch] md:col-start-2 md:row-start-2"
+			class="text-lede set-line max-w-[62ch] text-pretty md:col-start-2 md:row-start-2"
 			style="animation-delay: 0.44s"
 		>
-			I spend my days in detection and triage — writing the rules that catch things, and reading the
-			alerts when they do. The part that holds my attention now is AI: the models being handed
-			security decisions, and the new surface they open up when someone decides to attack them
-			instead.
+			I joined Cyberlogic as an intern and now handle escalations as a senior analyst. I utilise KQL
+			across Microsoft Sentinel and Defender XDR, automate repeat work in Logic Apps and PowerShell,
+			and spend part of each week helping junior analysts work through their trickier cases.
 		</p>
 
 		<div

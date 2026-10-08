@@ -6,14 +6,47 @@
 	let message = $state('');
 	/** Hidden from people, irresistible to bots. A filled value means we drop the submission. */
 	let company = $state('');
-	let status: 'idle' | 'unsent' = $state('idle');
+	let status: 'idle' | 'sending' | 'sent' | 'failed' = $state('idle');
+	/** Kept after the fields clear, so the confirmation can say where the reply will go. */
+	let sentTo = $state('');
 
-	// TODO: point this at a real endpoint (Worker or form service) and replace the
-	// `unsent` branch with proper pending / sent / failed states.
-	function handleSubmit(event: SubmitEvent) {
+	/**
+	 * Static Forms emails each submission to Yens. The key is designed to sit in the page (their own
+	 * snippet puts it in a hidden input), so it isn't a secret; the email address it delivers to
+	 * stays on their side and never reaches the browser.
+	 */
+	const FORM_ENDPOINT = 'https://api.staticforms.dev/submit';
+	const FORM_KEY = 'sf_f960ia77kf78klekih1jmn8m';
+
+	async function handleSubmit(event: SubmitEvent) {
 		event.preventDefault();
-		if (company) return;
-		status = 'unsent';
+		if (status === 'sending') return;
+		// Bots get the same confirmation as people, so there's nothing to learn from a rejection.
+		if (company) {
+			status = 'sent';
+			return;
+		}
+
+		status = 'sending';
+		try {
+			// The form's own fields (including the hidden key and subject) are the single source of
+			// what gets sent, so this and the no-script fallback submit exactly the same thing.
+			const fields = new FormData(event.currentTarget as HTMLFormElement);
+			fields.delete('company');
+			const response = await fetch(FORM_ENDPOINT, {
+				method: 'POST',
+				headers: { Accept: 'application/json' },
+				body: new URLSearchParams(fields as unknown as Record<string, string>)
+			});
+			const result: { success?: boolean } = await response.json().catch(() => ({}));
+			if (!response.ok || !result.success) throw new Error(`Static Forms: ${response.status}`);
+
+			sentTo = email;
+			name = email = message = '';
+			status = 'sent';
+		} catch {
+			status = 'failed';
+		}
 	}
 
 	/**
@@ -47,7 +80,11 @@
 	<div>
 		<h2 class="font-record text-ink-mid text-sm leading-6 tracking-wide">Enquire</h2>
 
-		<form class="relative mt-7" onsubmit={handleSubmit}>
+		<!-- action/method are the fallback: before the script loads (or with it off) the browser
+		     posts straight to Static Forms, so a message still arrives and nothing lands in the URL. -->
+		<form class="relative mt-7" action={FORM_ENDPOINT} method="POST" onsubmit={handleSubmit}>
+			<input type="hidden" name="apiKey" value={FORM_KEY} />
+			<input type="hidden" name="subject" value="Yens Loff submission" />
 			<div class="grid gap-6 sm:grid-cols-2">
 				<div class="group">
 					<label class={label} for="name">Your name</label>
@@ -83,16 +120,24 @@
 			</div>
 
 			<button
-				class="font-record bg-seal text-paper hover:bg-ink mt-8 cursor-pointer border-0 px-7 py-3 text-base transition-colors"
-				type="submit">Send message</button
+				class="font-record bg-seal text-paper hover:bg-ink mt-8 cursor-pointer border-0 px-7 py-3 text-base transition-colors disabled:cursor-wait disabled:opacity-70"
+				type="submit"
+				disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Send message'}</button
 			>
 
-			{#if status === 'unsent'}
-				<p class="font-record text-ink-mid mt-5 max-w-[46ch] text-sm leading-6" role="status">
-					This form isn't connected yet, so nothing was sent. It's being wired up — try again in a
-					few days.
-				</p>
-			{/if}
+			<!-- Always rendered, so screen readers announce the result when the text changes. -->
+			<p class="font-record mt-5 min-h-6 max-w-[46ch] text-sm leading-6" role="status">
+				{#if status === 'sent'}
+					<span class="text-seal font-semibold">Message sent.</span>
+					<span class="text-ink-mid"
+						>{sentTo ? `I'll reply to ${sentTo}.` : "I'll be in touch."}</span
+					>
+				{:else if status === 'failed'}
+					<span class="text-ink"
+						>Your message didn't send. Check your connection and try again.</span
+					>
+				{/if}
+			</p>
 		</form>
 	</div>
 </section>

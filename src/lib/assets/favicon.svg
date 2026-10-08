@@ -5,9 +5,9 @@
        so the colours flip to a paper tile with a green cup. -->
   <style>
     .tile { fill: #184A3C; }
-    .glyph { stroke: #E6E9EC; }
+    .glyph { stroke: #F3F5F6; }
     @media (prefers-color-scheme: dark) {
-      .tile { fill: #E6E9EC; }
+      .tile { fill: #F3F5F6; }
       .glyph { stroke: #184A3C; }
     }
   </style>
