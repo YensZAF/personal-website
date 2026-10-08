@@ -21,8 +21,8 @@
 	<main>
 		<Hero />
 		<Work />
-		<Credentials />
 		<Education />
+		<Credentials />
 		<Enquire />
 	</main>
 	<Footer />
