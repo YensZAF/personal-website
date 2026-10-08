@@ -10,7 +10,7 @@
 	<title>Yens Loff | Senior Cyber Security Analyst</title>
 	<meta
 		name="description"
-		content="Yens Loff, senior cyber security analyst at Cyberlogic. Four years in security."
+		content="Yens Loff, senior cyber security analyst. Four years in security."
 	/>
 </svelte:head>
 

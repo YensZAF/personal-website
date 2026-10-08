@@ -54,7 +54,7 @@
 			class="text-lede set-line max-w-[62ch] text-pretty md:col-start-2 md:row-start-2"
 			style="animation-delay: 0.44s"
 		>
-			I joined Cyberlogic as an intern and now handle escalations as a senior analyst. I utilise KQL
+			I've grown from the first line of a SOC to the analyst others escalate&nbsp;to. I utilise KQL
 			across Microsoft Sentinel and Defender XDR, automate repeat work in Logic Apps and PowerShell,
 			and spend part of each week helping junior analysts work through their trickier cases.
 		</p>
@@ -63,7 +63,7 @@
 			class="font-record text-ink-mid set-line text-sm leading-6 md:col-start-1 md:row-span-2 md:row-start-1 md:pt-1.5"
 			style="animation-delay: 0.56s"
 		>
-			<p>Senior Cyber Security Analyst &#64; Cyberlogic</p>
+			<p>Senior Cyber Security Analyst</p>
 			<p class="mt-2">Four years in Security</p>
 
 			<ul class="mt-5 flex list-none gap-4 p-0">
