@@ -16,10 +16,16 @@
 		status = 'unsent';
 	}
 
-	/** Paper inlaid in the card, so a field reads as somewhere to write. */
+	/**
+	 * Paper inlaid in the card, so a field reads as somewhere to write. Focus brightens the paper
+	 * and inks the bottom rule in seal green instead of drawing the page's offset focus ring,
+	 * which doubled up with the rule as two parallel edges.
+	 */
 	const field =
-		'font-record bg-paper border-seal/25 focus:border-seal mt-1.5 w-full border-0 border-b-2 px-3 py-2.5 text-base transition-colors';
-	const label = 'font-record text-ink-mid block text-sm';
+		'font-record bg-paper border-seal/25 focus:bg-paper-lift focus:border-seal mt-1.5 w-full border-0 border-b-2 px-3 py-2.5 text-base transition-colors outline-none focus-visible:outline-none';
+	/** The label follows its field into focus, so it's clear which question is being answered. */
+	const label =
+		'font-record text-ink-mid group-focus-within:text-seal block text-sm transition-colors';
 </script>
 
 <section
@@ -43,17 +49,17 @@
 
 		<form class="relative mt-7" onsubmit={handleSubmit}>
 			<div class="grid gap-6 sm:grid-cols-2">
-				<div>
+				<div class="group">
 					<label class={label} for="name">Your name</label>
 					<input class={field} id="name" name="name" type="text" required bind:value={name} />
 				</div>
-				<div>
+				<div class="group">
 					<label class={label} for="email">Email</label>
 					<input class={field} id="email" name="email" type="email" required bind:value={email} />
 				</div>
 			</div>
 
-			<div class="mt-6">
+			<div class="group mt-6">
 				<label class={label} for="message">What would you like to know?</label>
 				<textarea
 					class="{field} resize-none"

@@ -12,6 +12,8 @@ export interface Certification {
 
 export interface PastCertification {
 	name: string;
+	/** Shown on phones, where the full Microsoft title wraps across several lines. */
+	shortName: string;
 	status: string;
 }
 
@@ -48,14 +50,17 @@ export const certifications: Certification[] = [
 export const pastCertifications: PastCertification[] = [
 	{
 		name: 'Microsoft 365 Certified: Security Administrator Associate (MS-500)',
+		shortName: 'Security Administrator (MS-500)',
 		status: 'Exam retired by Microsoft'
 	},
 	{
 		name: 'Microsoft Certified: Azure Security Engineer Associate (AZ-500)',
+		shortName: 'Azure Security Engineer (AZ-500)',
 		status: 'Exam retired by Microsoft'
 	},
 	{
 		name: 'Microsoft Certified: Security Operations Analyst Associate (SC-200)',
+		shortName: 'Security Operations Analyst (SC-200)',
 		status: 'Expired'
 	}
 ];

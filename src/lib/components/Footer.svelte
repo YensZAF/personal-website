@@ -1,4 +1,7 @@
 <script lang="ts">
+	/** Taken from the clock rather than hard-coded, so the notice stays current without edits. */
+	const year = new Date().getFullYear();
+
 	import { links } from '$lib/data/links';
 
 	const elsewhere = [
@@ -11,7 +14,7 @@
 <footer
 	class="font-record text-ink-mid flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 pt-2 pb-10 text-sm"
 >
-	<span>Yens Loff</span>
+	<span>&copy; {year} Yens Loff</span>
 	<ul class="m-0 flex list-none flex-wrap gap-x-7 p-0">
 		{#each elsewhere as place (place.label)}
 			<li>

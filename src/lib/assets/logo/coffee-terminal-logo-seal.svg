@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 770 1360 870" width="1360" height="870">
+  <title>Coffee terminal logo, seal green</title>
+  <g fill="none" stroke-linejoin="round">
+    <!-- Steam -->
+    <path d="M 462 832 C 500 830, 512 870, 482 905 C 456 935, 464 972, 492 985"
+          stroke="#628775" stroke-width="44" stroke-linecap="round"/>
+
+    <!-- Lid / rim -->
+    <rect x="305" y="1120" width="330" height="86" rx="43"
+          stroke="#628775" stroke-width="48"/>
+
+    <!-- Handle (small left bracket) -->
+    <path d="M 150 1201 H 145 A 40 40 0 0 0 105 1241 V 1396 A 40 40 0 0 0 145 1436 H 150"
+          stroke="#184A3C" stroke-width="44"/>
+
+    <!-- Cup body: left bracket -->
+    <path d="M 302 1058 H 280 A 75 75 0 0 0 205 1133 V 1502 A 75 75 0 0 0 280 1577 H 302"
+          stroke="#184A3C" stroke-width="48"/>
+
+    <!-- Cup body: right bracket -->
+    <path d="M 648 1058 H 670 A 75 75 0 0 1 745 1133 V 1502 A 75 75 0 0 1 670 1577 H 648"
+          stroke="#184A3C" stroke-width="48"/>
+
+    <!-- Terminal prompt > -->
+    <polyline points="926,1240 1084,1350 926,1460"
+              stroke="#184A3C" stroke-width="52" stroke-linecap="round"/>
+
+    <!-- Cursor _ -->
+    <line x1="1172" y1="1476" x2="1360" y2="1476"
+          stroke="#184A3C" stroke-width="52" stroke-linecap="round"/>
+  </g>
+</svg>
