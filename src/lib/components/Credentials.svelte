@@ -14,7 +14,10 @@
 		{/each}
 	</ul>
 
-	<div class="mt-8 flex flex-wrap items-center gap-5 md:gap-6" aria-hidden="true">
+	<div
+		class="mx-auto mt-8 flex max-w-72 flex-wrap items-center justify-center gap-5 md:mx-0 md:max-w-none md:justify-start md:gap-6"
+		aria-hidden="true"
+	>
 		{#each certifications as cert (cert.name)}
 			<img
 				class="h-20 w-20 md:h-26 md:w-26"

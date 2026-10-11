@@ -1,5 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="60 770 1360 870" width="1360" height="870">
   <title>Coffee terminal logo, seal green</title>
+  <style>
+    /* A terminal cursor blinks hard on and off, not a fade: half a second each way. Still when
+       the viewer has asked for reduced motion. (On the website this file is placed inline, because
+       browsers don't pass that setting into an SVG shown through an img tag.) */
+    .logo-cursor { animation: logo-cursor-blink 1.06s step-end infinite; }
+    @keyframes logo-cursor-blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .logo-cursor { animation: none; } }
+  </style>
   <g fill="none" stroke-linejoin="round">
     <!-- Steam -->
     <path d="M 462 832 C 500 830, 512 870, 482 905 C 456 935, 464 972, 492 985"
@@ -26,7 +34,7 @@
               stroke="#184A3C" stroke-width="52" stroke-linecap="round"/>
 
     <!-- Cursor _ -->
-    <line x1="1172" y1="1476" x2="1360" y2="1476"
+    <line class="logo-cursor" x1="1172" y1="1476" x2="1360" y2="1476"
           stroke="#184A3C" stroke-width="52" stroke-linecap="round"/>
   </g>
 </svg>

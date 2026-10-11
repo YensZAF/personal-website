@@ -1,8 +1,13 @@
 <script lang="ts">
 	import GitHubIcon from '$lib/components/icons/GitHubIcon.svelte';
 	import LinkedInIcon from '$lib/components/icons/LinkedInIcon.svelte';
-	import logo from '$lib/assets/logo/coffee-terminal-logo-seal.svg';
+	import MailIcon from '$lib/components/icons/MailIcon.svelte';
+	// Inline rather than <img>: the blinking cursor's "reduce motion" rule only takes effect reliably
+	// in the page itself. The title is dropped so hovering the mark doesn't show a stray tooltip.
+	import logoSource from '$lib/assets/logo/coffee-terminal-logo-seal.svg?raw';
 	import { links } from '$lib/data/links';
+
+	const logo = logoSource.replace(/<title>.*?<\/title>/s, '');
 
 	const lines = [
 		'Most of the job is asking',
@@ -22,16 +27,23 @@
 		     and, at 16px, its capitals are the same 11px height as the ">". Fixed at 44px tall so the
 		     two stay locked together. Seal green to match the prompt strokes. -->
 		<div class="flex items-start gap-2">
-			<img class="h-11 w-auto" src={logo} alt="" width="69" height="44" />
+			<!-- Safe: the markup is a file from this repo, read at build time, never user input. -->
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			<span class="block h-11 [&>svg]:h-11 [&>svg]:w-auto" aria-hidden="true">{@html logo}</span>
 			<span
 				class="font-record text-seal mt-[21px] text-base leading-none font-semibold tracking-[0.02em]"
 				>Yens Loff</span
 			>
 		</div>
+		<!-- Jumps to the form rather than opening a mail client, so no address is ever on the page. -->
 		<a
-			class="font-record text-ink-mid hover:text-seal mt-[23px] text-sm leading-none no-underline transition-colors"
-			href="#enquire">Enquire</a
+			class="text-seal hover:text-ink mt-[19px] block transition-colors"
+			href="#enquire"
+			aria-label="Send me a message"
+			title="Send me a message"
 		>
+			<MailIcon class="h-5 w-auto" />
+		</a>
 	</div>
 
 	<!-- Same grid as the record sections below, so the page reads as one document from the top.
@@ -64,7 +76,7 @@
 			style="animation-delay: 0.56s"
 		>
 			<p>Senior Cyber Security Analyst</p>
-			<p class="mt-2">Four years in Security</p>
+			<p class="mt-2">Five years in Security</p>
 
 			<ul class="mt-5 flex list-none gap-4 p-0">
 				{#each profiles as profile (profile.label)}
